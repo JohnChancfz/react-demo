@@ -1,0 +1,27 @@
+[
+  {
+    "name": "日",
+    "image": "./images/ri.jpg",
+    "phrase":"日光"
+  },
+  {
+    "name": "月",
+    "image": "./images/yl.jpg",
+    "phrase":"月亮"
+  },
+  {
+    "name": "水",
+    "image": "./images/shui.jpg",
+    "phrase":"水杯"
+  },
+  {
+    "name": "火",
+    "image": "./images/huoju.jpg",
+    "phrase":"火炬"
+  },
+  {
+    "name": "土",
+    "image": "./images/tudi.jpg",
+    "phrase":"土地"
+  }
+]

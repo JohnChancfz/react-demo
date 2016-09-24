@@ -78,7 +78,7 @@ var FlexItem = React.createClass({
       return {liked: 0};
   },
   handleClick: function(num,event) {
-      if(num==answer.num){
+      if(num===answer.num){
         this.setState({liked: 1});
       }else{
         this.setState({liked: -1});
@@ -91,7 +91,7 @@ var FlexItem = React.createClass({
   },
   render: function() {
     var text = '';
-    if(this.state.liked==1){
+    if(this.state.liked===1){
       text='√';
       // if(value<itemDatas.length){
       //   value=value+1;
@@ -100,7 +100,7 @@ var FlexItem = React.createClass({
       // }
 
       window.parent.location.href='';
-    }else if (this.state.liked==-1) {
+    }else if (this.state.liked===-1) {
       text='×';
 
     }else{

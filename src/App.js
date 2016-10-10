@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 var itemDatas = require('./data/data.json');
+var wrong_sound= require('./audio/tts.mp3');
+var right_sound= require('./audio/tts.mp3');
 var value=GetRandomNum(0,itemDatas.length-1);
 function GetRandomNum(Min,Max)
 {
@@ -102,8 +104,8 @@ var FlexItem = React.createClass({
     }else if (this.state.liked===-1) {
       text='×';
       document.getElementById('audio_worng').play();
-      console.log(document.getElementById('audio_worng'));
-      console.log(document.getElementById('audio_worng').play());
+      //console.log(document.getElementById('audio_worng'));
+      //console.log(document.getElementById('audio_worng').play());
     }else{
       text='';
     }
@@ -117,11 +119,11 @@ class App extends Component {
     return (
       <div className="App">
         <audio id="audio_worng" preload="metadata">
-          <source src="audio/line_a_6.ogg" type="audio/ogg"/>
+          <source src={wrong_sound} type="audio/mp3"/>
           Your browser does not support the audio tag.
         </audio>
         <audio id="audio_right" preload="metadata">
-          <source src="audio/line_a_7.ogg" type="audio/ogg"/>
+          <source src={right_sound} type="audio/mp3"/>
           Your browser does not support the audio tag.
         </audio>
         <div className="flex-demo">

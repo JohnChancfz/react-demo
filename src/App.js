@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 var itemDatas = require('./data/data.json');
@@ -63,8 +62,8 @@ var answer = getAnswer(itemDatas,value);
 var FlexContainerLeft = React.createClass({
 propTypes: {
   title: React.PropTypes.string.isRequired,
-  imageURL:React.PropTypes.string.isRequired,
-  phrase:React.PropTypes.string.isRequired,
+  imageURL: React.PropTypes.string.isRequired,
+  phrase: React.PropTypes.string.isRequired,
 },
 render: function() {
    return (<div className="flex-container-left">
@@ -98,11 +97,13 @@ var FlexItem = React.createClass({
       // }else{
       //   value=0;
       // }
-
+      document.getElementById('audio_right').play();
       window.parent.location.href='';
     }else if (this.state.liked===-1) {
       text='×';
-
+      document.getElementById('audio_worng').play();
+      console.log(document.getElementById('audio_worng'));
+      console.log(document.getElementById('audio_worng').play());
     }else{
       text='';
     }
@@ -114,12 +115,15 @@ class App extends Component {
 
   render() {
     return (
-
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
+        <audio id="audio_worng" preload="metadata">
+          <source src="audio/line_a_6.ogg" type="audio/ogg"/>
+          Your browser does not support the audio tag.
+        </audio>
+        <audio id="audio_right" preload="metadata">
+          <source src="audio/line_a_7.ogg" type="audio/ogg"/>
+          Your browser does not support the audio tag.
+        </audio>
         <div className="flex-demo">
           <FlexContainerLeft title={answer.name} imageURL={answer.image} phrase={answer.phrase}/>
           <ul className="flex-container second">
@@ -128,11 +132,6 @@ class App extends Component {
           <FlexItem title={answer.three} num={answer.threenum}/>
           <FlexItem title={answer.four} num={answer.fournum}/>
           </ul>
-        </div>
-
-        <div className="App-intro">
-         <div className="heart " id="like1" rel="like"></div>
-          To get started, edit <code>src/App.js</code> and save to reload.
         </div>
       </div>
     );
